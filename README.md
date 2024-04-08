@@ -7,13 +7,13 @@ This project aims to improve the accessibility, efficiency, and quality of solvi
 
 ## Features
  
- 
+
 
 
 
 ## Contribution
 
-We welcome contributions to enhance and improve Surgical Excellence! To contribute:
+We welcome contributions to Find Solution for Human problems! To contribute:
 
 1. Fork the repository.
 2. Clone the forked repository to your local machine.

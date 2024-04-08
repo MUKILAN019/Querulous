@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
-
-app.listen(4444, (error) => {
+const port = process.env.PORT || 4444;
+app.listen(port, (error) => {
     if (error) {
         console.error("Server connection error:", error);
     } else {
