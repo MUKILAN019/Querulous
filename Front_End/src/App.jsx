@@ -1,13 +1,15 @@
 import { useState } from 'react';
-import './App.css';
-
+import logo from "./assets/querulous-logo.jpeg"
+import "./index.css";
 function App() {
 
   return (
     <>
-      <div className="welcome-message">
-        <h1>Welcome to My React App!</h1>
-      </div>
+     
+        <div className='w-72 absolute top-0 left-0'>
+          <img src={logo} alt="" />
+        </div>
+      
     </>
   );
 }
