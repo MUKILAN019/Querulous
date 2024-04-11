@@ -61,4 +61,11 @@ We welcome contributions to help find solutions for human problems! To contribut
     ```
 5. **Submit a Pull Request**: Finally, submit a pull request detailing the changes you made and the problem you solved.
 
+Updated_Readme
 Thank you for contributing to Querulous! We look forward to your innovative solutions and ideas. 🙌
+
+1. Fork the repository.
+2. Clone the forked repository to your local machine.
+3. Make your changes and enhancements.
+4. Push your changes to your forked repository.
+5. Submit a pull request, detailing the changes made and the problem solved.
