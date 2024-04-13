@@ -1,6 +1,7 @@
 import "../index.css";
 import logo from "../assets/querulous.png"
 import bgimg from "../assets/Desktop.png";
+import { Link } from "react-router-dom";
 export default function Splash_Page(){
     return(
       <>
@@ -17,7 +18,7 @@ export default function Splash_Page(){
     <h4 className="text-3xl font-bold text-gray-700">Welcome to Querulous</h4>
     <p className="mt-4 text-lg text-blue-500">Join me, let's tackle challenges hand in hand</p>
     <div className="w-full h-24 flex items-center justify-center cursor-pointer ml-11">
-      <div
+    <Link to="/landingPage"><div
         className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow text-indigo-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 dark:bg-gray-700 dark:text-white dark:hover:text-gray-200 dark:shadow-none group"
       >
         <span
@@ -64,7 +65,7 @@ export default function Splash_Page(){
         >
           Get Started
         </span>
-      </div>
+      </div></Link>
     </div>
   </div>
 </div>
