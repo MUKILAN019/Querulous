@@ -59,12 +59,12 @@ export default function LandingPage() {
         />
       </div>
       <div className="text-right mb-4">
-        <a
+        <Link to="/OTP"><a
           className="text-xs font-display font-semibold text-gray-500 hover:text-gray-600 cursor-pointer"
           href="#"
         >
           Forgot Password?
-        </a>
+        </a></Link>
       </div>
       <div className="flex justify-center w-full items-center">
         <div>
