@@ -11,7 +11,7 @@ export default function Splash_Page(){
     </div>
 </div>
 <div className="flex">
-<div className="min-h-screen grid items-center justify-center bg-gray-300 w-1/2 shadow-zinc-200">
+<div className="min-h-screen grid items-center justify-center bg-orange-300 w-1/2 shadow-orange-200">
     <h1 className="text-4xl font-bold text-gray-800 mt-36 ml-11">Let's solve problem together</h1>
     <p className="ml-11 font-semibold text-sky-800">Navigate challenges effortlessly with our intuitive platform. Let's turn obstacles into opportunities together. Dive in and discover a new way to problem-solve!</p>
   <div className="bg-white p-10 rounded-lg shadow-lg w-11/12 h-64 ml-6">
@@ -19,10 +19,10 @@ export default function Splash_Page(){
     <p className="mt-4 text-lg text-blue-500">Join me, let's tackle challenges hand in hand</p>
     <div className="w-full h-24 flex items-center justify-center cursor-pointer ml-11">
     <Link to="/landingPage"><div
-        className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow text-indigo-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 dark:bg-gray-700 dark:text-white dark:hover:text-gray-200 dark:shadow-none group"
+        className="relative inline-flex items-center justify-start py-3 pl-4 pr-12 overflow-hidden font-semibold shadow text-orange-600 transition-all duration-150 ease-in-out rounded hover:pl-10 hover:pr-6 bg-gray-50 dark:bg-gray-700 dark:text-white dark:hover:text-gray-200 dark:shadow-none group"
       >
         <span
-          className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-indigo-600 group-hover:h-full"
+          className="absolute bottom-0 left-0 w-full h-1 transition-all duration-150 ease-in-out bg-orange-600 group-hover:h-full"
         ></span>
         <span
           className="absolute right-0 pr-4 duration-200 ease-out group-hover:translate-x-12"
@@ -32,7 +32,7 @@ export default function Splash_Page(){
             viewBox="0 0 24 24"
             stroke="currentColor"
             fill="none"
-            className="w-5 h-5 text-green-400"
+            className="w-5 h-5 text-blue-400"
           >
             <path
               d="M14 5l7 7m0 0l-7 7m7-7H3"
@@ -50,7 +50,7 @@ export default function Splash_Page(){
             viewBox="0 0 24 24"
             stroke="currentColor"
             fill="none"
-            className="w-5 h-5 text-green-400"
+            className="w-5 h-5 text-white-400"
           >
             <path
               d="M14 5l7 7m0 0l-7 7m7-7H3"

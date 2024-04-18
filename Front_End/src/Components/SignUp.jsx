@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import axios from 'axios';
+
 const SignUpForm = () => {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -21,12 +22,33 @@ const SignUpForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-  };
-  
 
+    if (formData.email !== formData.confirmEmail) {
+      alert('Emails do not match');
+      return;
+    }
+
+    if (formData.password !== formData.confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+
+    try {
+      const res = await axios.post('http://localhost:4444/api/user/register', formData);
+      console.log(res.data.message);
+      console.log(res.data.user);
+      console.log(formData)
+      // Redirect to login or dashboard
+    } catch (error) {
+      if (error.response) {
+        console.error(error.response.data.message);
+      } else {
+        console.error("Network error:", error.message);
+      }
+    }
+  };
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-[url('./assets/BG.png')] bg-no-repeat bg-cover ">
@@ -40,6 +62,7 @@ const SignUpForm = () => {
             type="text"
             value={formData.firstName}
             onChange={handleChange}
+            required
           />
           <input
             name="lastName"
@@ -48,6 +71,7 @@ const SignUpForm = () => {
             type="text"
             value={formData.lastName}
             onChange={handleChange}
+            required
           />
           <input
             name="email"
@@ -56,6 +80,7 @@ const SignUpForm = () => {
             type="email"
             value={formData.email}
             onChange={handleChange}
+            required
           />
           <input
             name="confirmEmail"
@@ -64,6 +89,7 @@ const SignUpForm = () => {
             type="email"
             value={formData.confirmEmail}
             onChange={handleChange}
+            required
           />
           <input
             name="password"
@@ -72,6 +98,7 @@ const SignUpForm = () => {
             type="password"
             value={formData.password}
             onChange={handleChange}
+            required
           />
           <input
             name="confirmPassword"
@@ -80,20 +107,20 @@ const SignUpForm = () => {
             type="password"
             value={formData.confirmPassword}
             onChange={handleChange}
+            required
           />
-          
           <select
             name="gender"
             className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
             id="gender"
             value={formData.gender}
             onChange={handleChange}
+            required
           >
             <option value="male">Male</option>
             <option value="female">Female</option>
             <option value="other">Other</option>
           </select>
-          
           <input
             name="age"
             className="bg-gray-100 text-gray-900 border-0 rounded-md p-2"
@@ -101,6 +128,7 @@ const SignUpForm = () => {
             type="date"
             value={formData.age}
             onChange={handleChange}
+            required
           />
           <p className="text-gray-900 mt-4"> Already have an account? <Link to="/LandingPage"><a className="text-sm text-orange-500 hover:underline mt-4" href="#">Login</a></Link></p>
           <button
