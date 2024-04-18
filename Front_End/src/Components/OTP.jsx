@@ -1,4 +1,27 @@
+import { useEffect, useState } from "react";
+
 export default function OTP() {
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setIsLoading(false);
+      }, 3000);
+  
+      return () => {
+        clearTimeout(timer);
+      };
+    }, []);
+  
+    if (isLoading) {
+      return (
+        <>
+          <div className="flex justify-center items-center h-screen">
+    <div className="rounded-full h-20 w-20 bg-orange-700 animate-ping"></div>
+  </div>
+        </>
+      );
+    }
     return (
         <div className="relative flex w-full h-screen flex-col justify-center  bg-no-repeat bg-cover  bg-[url('./assets/BG.png')]">
             <div className="relative bg-white px-6 pt-10 pb-9 shadow-xl mx-auto w-full max-w-lg rounded-2xl">
