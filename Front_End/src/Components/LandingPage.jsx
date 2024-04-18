@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/querulous.png";
 export default function LandingPage() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -25,6 +26,11 @@ export default function LandingPage() {
 
   return (
     <>
+      <div className="flex w-full h-full border shadow-md">
+    <div className='w-96 relative'>
+        <img className="absolute w-72 mt-2" src={logo} alt="Logo" />
+    </div>
+</div>
     <div className="flex h-screen">
         <div className="w-1/2  bg-gray-300">
             <div className="top-[11%] absolute left-[6%]">
