@@ -4,14 +4,14 @@ import axios from 'axios';
 
 const SignUpForm = () => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+    firstname: '',
+    lastname: '',
     email: '',
     confirmEmail: '',
     password: '',
     confirmPassword: '',
     gender: 'Male',
-    age: ''
+    dateOfBirth: ''
   });
 
   const handleChange = (e) => {
@@ -36,10 +36,10 @@ const SignUpForm = () => {
     }
 
     try {
-      const res = await axios.post('http://localhost:4444/api/user/register', formData);
+      const res = await axios.post('http://localhost:5001/api/user/register', formData);
       console.log(res.data.message);
       console.log(res.data.user);
-      console.log(formData)
+      console.log(formData);
       // Redirect to login or dashboard
     } catch (error) {
       if (error.response) {
@@ -56,20 +56,20 @@ const SignUpForm = () => {
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Sign Up</h2>
         <form className="grid grid-cols-2 gap-8" onSubmit={handleSubmit}>
           <input
-            name="firstName"
+            name="firstname"
             placeholder="First Name"
             className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
             type="text"
-            value={formData.firstName}
+            value={formData.firstname}
             onChange={handleChange}
             required
           />
           <input
-            name="lastName"
+            name="lastname"
             placeholder="Last Name"
             className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150"
             type="text"
-            value={formData.lastName}
+            value={formData.lastname}
             onChange={handleChange}
             required
           />
@@ -117,16 +117,16 @@ const SignUpForm = () => {
             onChange={handleChange}
             required
           >
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
           </select>
           <input
-            name="age"
+            name="dateOfBirth"
             className="bg-gray-100 text-gray-900 border-0 rounded-md p-2"
-            id="age"
+            id="dateOfBirth"
             type="date"
-            value={formData.age}
+            value={formData.dateOfBirth}
             onChange={handleChange}
             required
           />

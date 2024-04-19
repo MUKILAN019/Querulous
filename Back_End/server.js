@@ -6,7 +6,7 @@ const userRoutes = require('./Routes');
 
 require('dotenv').config();
 
-const port = process.env.PORT || 4444;
+const port = process.env.PORT || 5001;
 const MONGO_URL = process.env.MONGO_URL;
 
 app.use(cors());
@@ -16,11 +16,19 @@ app.use('/api/user', userRoutes);
 app.get("/", (req, res) => {
     res.send("Hello, World!")
 });
-mongoose.connect(MONGO_URL);
-app.listen(port, (error) => {
-    if (error) {
-        console.error("Server connection error:", error);
-    } else {
-        console.log(`Server connected successfully on port ${port}`);
+
+const connectDB = async () => {
+    try {
+        await mongoose.connect(MONGO_URL);
+        console.log('MongoDB connected successfully');
+    } catch (error) {
+        console.error("MongoDB connection error:", error);
+        process.exit(1); 
     }
+};
+
+connectDB();
+
+app.listen(port, () => {
+    console.log(`Server connected successfully on port ${port}`);
 });
