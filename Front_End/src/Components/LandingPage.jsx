@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";  // Don't forget to import axios
 import logo from "../assets/querulous.png";
+
 export default function LandingPage() {
   const [isLoading, setIsLoading] = useState(true);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -14,15 +18,29 @@ export default function LandingPage() {
     };
   }, []);
 
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post("http://localhost:5001/api/user/login", { email, password });
+      if (response.status === 200 && response.data && response.data.token) {
+        localStorage.setItem("token", response.data.token);
+        window.location.href = "/main";
+      }
+    } catch (error) {
+      alert(error.response ? error.response.data.message : "An error occurred");
+    }
+  };
+
   if (isLoading) {
     return (
       <>
         <div className="flex justify-center items-center h-screen">
-  <div className="rounded-full h-20 w-20 bg-orange-700 animate-ping"></div>
-</div>
+          <div className="rounded-full h-20 w-20 bg-orange-700 animate-ping"></div>
+        </div>
       </>
     );
   }
+
+  
 
   return (
     <>
@@ -52,6 +70,7 @@ export default function LandingPage() {
           className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
           type="text"
           id="login"
+          onChange={(e) => setEmail(e.target.value)}
         />
         <label
           className="font-semibold text-sm text-gray-600 pb-1 block"
@@ -62,6 +81,7 @@ export default function LandingPage() {
           className="border rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full"
           type="password"
           id="password"
+          onChange={(e) => setPassword(e.target.value)}
         />
       </div>
       <div className="text-right mb-4">
@@ -157,7 +177,7 @@ export default function LandingPage() {
       <div className="mt-5">
         <button
           className="py-2 px-4 bg-orange-600 hover:bg-orange-700 focus:ring-orange-500 focus:ring-offset-orange-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
-          type="submit"
+          type="submit" onClick={handleLogin}
         >
           Log in
         </button>
