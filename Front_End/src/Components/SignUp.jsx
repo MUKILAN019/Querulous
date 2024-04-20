@@ -40,7 +40,6 @@ const SignUpForm = () => {
       console.log(res.data.message);
       console.log(res.data.user);
       console.log(formData);
-      // Redirect to login or dashboard
     } catch (error) {
       if (error.response) {
         console.error(error.response.data.message);

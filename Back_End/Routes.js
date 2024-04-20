@@ -34,8 +34,8 @@ router.post('/register', async (req, res) => {
             lastname,
             email,
             confirmEmail,
-            password, // Save the password as is
-            confirmPassword, // Save the confirmPassword as is
+            password,
+            confirmPassword,
             gender,
             dateOfBirth
         });
@@ -45,6 +45,32 @@ router.post('/register', async (req, res) => {
 
     } catch (error) {
         console.error('Error in register endpoint:', error.message);
+        res.status(500).json({ message: 'Server Error', error: error.message });
+    }
+});
+
+// Login route
+router.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        // Check if user exists
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(400).json({ message: 'Invalid credentials' });
+        }
+
+        // Check if password is correct
+        if (password !== user.password) {
+            return res.status(400).json({ message: 'Invalid credentials' });
+        }
+
+        // Redirect to another page or send user details in response
+        res.status(200).json({ message: 'Logged in successfully', user });
+        // res.redirect('/main');
+
+    } catch (error) {
+        console.error('Error in login endpoint:', error.message);
         res.status(500).json({ message: 'Server Error', error: error.message });
     }
 });
