@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
+import { useNavigate } from "react-router-dom";
 const SignUpForm = () => {
   const [formData, setFormData] = useState({
     firstname: '',
@@ -13,7 +13,7 @@ const SignUpForm = () => {
     gender: 'Male',
     dateOfBirth: ''
   });
-
+  const nav=useNavigate();
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -21,7 +21,7 @@ const SignUpForm = () => {
       [name]: value
     });
   };
-
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -40,11 +40,12 @@ const SignUpForm = () => {
       console.log(res.data.message);
       console.log(res.data.user);
       console.log(formData);
+      nav("/home")
     } catch (error) {
       if (error.response) {
-        console.error(error.response.data.message);
+        alert(error.response.data.message);
       } else {
-        console.error("Network error:", error.message);
+        alert("Network error:", error.message);
       }
     }
   };

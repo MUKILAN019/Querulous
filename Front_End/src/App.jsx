@@ -4,6 +4,7 @@ import {Routes,Route} from "react-router-dom";
 import LandingPage from './Components/LandingPage';
 import SignUp from './Components/SignUp';
 import OTP from './Components/OTP';
+import HomePage from './Components/Home';
 function App() {
 
   return (
@@ -14,6 +15,7 @@ function App() {
            <Route path="/landingPage" element={<LandingPage/>}/>
            <Route path="/SignUp" element={<SignUp/>}/>
            <Route path="/OTP" element={<OTP/>}/>
+           <Route path="/home" element={<HomePage/>}/>
        </Routes>
    
     </>

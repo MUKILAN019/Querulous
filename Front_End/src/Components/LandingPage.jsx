@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";  // Don't forget to import axios
+import axios from "axios";  
 import logo from "../assets/querulous.png";
-
+import { useNavigate } from "react-router-dom";
 export default function LandingPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const nav=useNavigate();
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -21,14 +21,17 @@ export default function LandingPage() {
   const handleLogin = async () => {
     try {
       const response = await axios.post("http://localhost:5001/api/user/login", { email, password });
-      if (response.status === 200 && response.data && response.data.token) {
-        localStorage.setItem("token", response.data.token);
-        window.location.href = "/main";
+      console.log(response)
+      if (response.status === 200 && response.data) {
+        nav("/home")
+        console.log("success");
       }
     } catch (error) {
       alert(error.response ? error.response.data.message : "An error occurred");
+      console.log("failed");
     }
   };
+  
 
   if (isLoading) {
     return (
