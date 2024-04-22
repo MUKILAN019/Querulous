@@ -57,17 +57,18 @@ router.post('/login', async (req, res) => {
         // Check if user exists
         const user = await User.findOne({ email });
         if (!user) {
-            return res.status(400).json({ message: 'Invalid credentials' });
+            return res.status(400).json({ message: 'Invalid Email' });
         }
 
         // Check if password is correct
         if (password !== user.password) {
-            return res.status(400).json({ message: 'Invalid credentials' });
+            return res.status(400).json({ message: 'Invalid password' });
         }
 
-        // Redirect to another page or send user details in response
         res.status(200).json({ message: 'Logged in successfully', user });
-        // res.redirect('/main');
+        
+       
+        
 
     } catch (error) {
         console.error('Error in login endpoint:', error.message);
