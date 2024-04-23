@@ -5,6 +5,7 @@ import LandingPage from './Components/LandingPage';
 import SignUp from './Components/SignUp';
 import OTP from './Components/OTP';
 import HomePage from './Components/Home';
+import Profile from './Components/Profile';
 function App() {
 
   return (
@@ -16,6 +17,7 @@ function App() {
            <Route path="/SignUp" element={<SignUp/>}/>
            <Route path="/OTP" element={<OTP/>}/>
            <Route path="/home" element={<HomePage/>}/>
+           <Route path="/profile" element={<Profile/>}/>
        </Routes>
    
     </>
