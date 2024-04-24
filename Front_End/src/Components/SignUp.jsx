@@ -40,7 +40,7 @@ const SignUpForm = () => {
       console.log(res.data.message);
       console.log(res.data.user);
       console.log(formData);
-      nav("/home")
+      nav("/choice")
     } catch (error) {
       if (error.response) {
         alert(error.response.data.message);
