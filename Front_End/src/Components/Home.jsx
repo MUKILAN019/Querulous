@@ -44,16 +44,18 @@ export default function HomePage(){
                         <p className="text-xs mt-1 mr-2">Home</p>
                     </li>
                     <li>
-                        <div className="relative">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
-                            </svg>
-                            <span className="absolute top-0 right-0 block h-5 w-5 rounded-full bg-blue-500"></span>
-                        </div>
-                        <div>
-                        <p className="text-xs mt-1">Notification</p>
-                        </div>
-                       
+                    <div className="relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                    </svg>
+                    <span className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute bottom-8 left-5   inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                    <span className="relative bottom-8 left-5 inline-flex rounded-full h-3 w-3 bg-sky-500"></span>
+                    </span>
+                    </div>
+                    <div>
+                        <p className="text-xs absolute bottom-0.5">Notification</p>
+                    </div>
                     </li>
                    <Link to="/profile"> <li>
                         <svg class="h-8 w-8 text-orange-500"  width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  
