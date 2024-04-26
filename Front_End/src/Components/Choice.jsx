@@ -3,7 +3,7 @@ import bgimg2 from "../assets/elonMusk.png";
 import bgimg3 from "../assets/markZ.png";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-
+import axios from "axios";
 export default function ChoicePage() {
   const topics = [
     { label: "Financial Issues", color: "orange-700", id: 0 },
@@ -22,7 +22,6 @@ export default function ChoicePage() {
     { label: "Technology Challenges", color: "sky-300", id: 13 },
     { label: "Isolation", color: "yellow-600", id: 14 },
   ];
-
   const TopicCard = ({ topic, id, handleClick, isSelected }) => (
     <div
       className={`h-32  ${isSelected ? `bg-${topic.color}` :  'bg-orange-400'}  border-black border-4 rounded-lg flex justify-center items-center transform hover:scale-105 transition-transform duration-300`}
@@ -62,6 +61,22 @@ console.log(selectedTopics)
       alt={alt}
     />
   );
+  
+  const handleClickon = async () => {
+    try {
+        const response = await axios.post("http://localhost:5001/api/user/choice", {
+            email: localStorage.getItem("email"),
+            data: selectedTopics
+        });
+        if (response.status === 200 && response.data.message === "Successfully saved user's choice") {
+            alert("Success");
+            console.log("Success");
+        }
+    } catch (error) {
+        console.error(error);
+        alert("Error saving user's choice");
+    }
+};
 
   return (
     <>
@@ -118,7 +133,7 @@ console.log(selectedTopics)
                   ></path>
                 </svg>
               </span>
-              <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white dark:group-hover:text-gray-200">
+              <span className="relative w-full text-left transition-colors duration-200 ease-in-out group-hover:text-white dark:group-hover:text-gray-200" onClick={handleClickon}>
                 Get Started
               </span>
             </div>

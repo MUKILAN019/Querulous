@@ -40,6 +40,7 @@ const SignUpForm = () => {
       console.log(res.data.message);
       console.log(res.data.user);
       console.log(formData);
+      localStorage.setItem("email",formData.email)
       nav("/choice")
     } catch (error) {
       if (error.response) {

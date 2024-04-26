@@ -115,6 +115,21 @@ router.post("/otp", async (req, res) => {
         res.status(500).json({ message: "Server Error", error: er.message });
     }
 })
+//choice
+router.post("/choice", async (req, res) => {
+    const { email, data } = req.body;
+    try {
+        await User.findOneAndUpdate(
+            { email },
+            { selectedTopics: data }
+        );
+        res.status(200).json({ message: "Successfully saved user's choice" });
+    } catch (error) {
+        console.error("Error in choice endpoint:", error.message);
+        res.status(500).json({ message: "Server Error", error: error.message });
+    }
+});
+
 
 
 module.exports = router;
