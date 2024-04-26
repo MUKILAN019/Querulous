@@ -23,6 +23,7 @@ export default function LandingPage() {
       const response = await axios.post("http://localhost:5001/api/user/login", { email, password });
       console.log(response)
       if (response.status === 200 && response.data) {
+        localStorage.setItem("email",email)
         nav("/home")
         console.log("success");
       }
