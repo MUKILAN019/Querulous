@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 export default function Profile() {
+  const imageDat = localStorage.getItem("image");
+  console.log(imageDat)
   return (
     <div className="p-16 bg-orange-300">
       <Link to="/home"><button className="cursor-pointer duration-200 hover:scale-125 active:scale-100 flex" title="Go Back">
@@ -25,10 +27,9 @@ export default function Profile() {
             </div>
           </div>
           <div className="relative">
-            <div className="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-24 w-24" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-              </svg>
+            <div className="w-56 h-56 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500">
+    
+              <img className="rounded-full h-56 w-56" src={imageDat} alt="" />
             </div>
           </div>
           <div className="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
