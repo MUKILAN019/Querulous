@@ -8,6 +8,7 @@ import HomePage from './Components/Home';
 import Profile from './Components/Profile';
 import ChoicePage from './Components/Choice';
 import ProfileEdit from './Components/ProfileEdit';
+
 function App() {
 
   return (

@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 export default function Profile() {
-  const imageDat = localStorage.getItem("image");
-  console.log(imageDat)
+  let imageDat = localStorage.getItem("profileImage");
+  imageDat=JSON.parse(imageDat)
+  console.log(imageDat.age)
   return (
     <div className="p-16 bg-orange-300">
       <Link to="/home"><button className="cursor-pointer duration-200 hover:scale-125 active:scale-100 flex" title="Go Back">

@@ -129,6 +129,17 @@ router.post("/choice", async (req, res) => {
         res.status(500).json({ message: "Server Error", error: error.message });
     }
 });
+//Edit
+// router.post("/edit",async(req,res)=>{
+//     const {
+//         fullname,
+//         location,
+//         age,
+//         professional,
+//         workingAt,
+//         profileImage
+//     } = req.body;
+// })
 
 
 
