@@ -37,6 +37,26 @@ const userSchema = new mongoose.Schema({
     },
     selectedTopics: [{
         type: String 
+    }],
+    data:[{
+        fullname:[{
+            type:String
+        }],
+        location:[{
+            type:String
+        }],
+        age:[{
+            type:Number
+        }],
+        professional:[{
+            type:String
+        }],
+        workingAt:[{
+            type:String
+        }],
+        profileImage:[{
+            type:String
+        }]
     }]
 });
 
