@@ -130,16 +130,21 @@ router.post("/choice", async (req, res) => {
     }
 });
 //Edit
-// router.post("/edit",async(req,res)=>{
-//     const {
-//         fullname,
-//         location,
-//         age,
-//         professional,
-//         workingAt,
-//         profileImage
-//     } = req.body;
-// })
+router.post("/edit", async (req, res) => {
+    const { email, data } = req.body; 
+    try {
+      await User.findOneAndUpdate(
+        { email: email }, 
+        { data: data }
+      );
+    //   console.log(data)
+      res.status(200).send("User updated successfully");
+    } catch (error) {
+      console.log(error);
+      res.status(500).send("Error updating user");
+    }
+  });
+  
 
 
 

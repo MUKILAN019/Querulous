@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function ProfileEdit() {
   const [data, setData] = useState({
@@ -19,7 +19,8 @@ function ProfileEdit() {
       [name]: value
     }));
   };
-
+  const emailId = localStorage.getItem("email");
+ console.log(emailId);
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
@@ -41,11 +42,31 @@ function ProfileEdit() {
     reader.readAsDataURL(file);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit =  (e) => {
     e.preventDefault();
-    // Store only the profile image URL
-    localStorage.setItem("profileImage", JSON.stringify(data));
+    useEffect(()=>{
+        setInterval(async()=>{
+            try {
+                    const res = await axios.post("http://localhost:5001/api/user/edit", {
+                        email: emailId,
+                        data: {
+                          fullname: data.fullName, 
+                          location: data.location,
+                          age: data.age,
+                          professional: data.professional,
+                          workingAt: data.workingAt,
+                          profileImage: data.profileImage 
+                        }
+                      });
+                      console.log(res);
+                
+                } catch (error) {
+                  console.log(error);
+                }
+        },2000)
+    },[])
   };
+  
   
 
   return (
