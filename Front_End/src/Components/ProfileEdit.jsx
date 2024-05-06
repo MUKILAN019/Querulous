@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function ProfileEdit() {
   const [data, setData] = useState({
@@ -44,8 +44,7 @@ function ProfileEdit() {
 
   const handleSubmit =  (e) => {
     e.preventDefault();
-    useEffect(()=>{
-        setInterval(async()=>{
+        setTimeout(async()=>{
             try {
                     const res = await axios.post("http://localhost:5001/api/user/edit", {
                         email: emailId,
@@ -64,7 +63,6 @@ function ProfileEdit() {
                   console.log(error);
                 }
         },2000)
-    },[])
   };
   
   
