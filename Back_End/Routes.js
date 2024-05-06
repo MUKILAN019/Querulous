@@ -144,8 +144,21 @@ router.post("/edit", async (req, res) => {
       res.status(500).send("Error updating user");
     }
   });
+//profile 
+router.post("/profile", async (req, res) => {
+    const { email } = req.body;
+    
+    try {
+      const user = await User.findOne({ email });
+      if (!user) {
+        return res.status(400).json({ message: "Invalid Email" });
+      }
+      const detail = user;
+      res.status(200).send({ message: "Successfully saved user's choice",detail:detail});
+    } catch (err) {
+      res.status(500).send({ message: "Server Error", error: err.message });
+    }
+  });
   
-
-
 
 module.exports = router;
