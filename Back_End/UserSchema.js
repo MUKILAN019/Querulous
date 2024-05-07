@@ -54,6 +54,9 @@ const userSchema = new mongoose.Schema({
         workingAt:[{
             type:String
         }],
+        about:[{
+            type:String
+        }],
         profileImage:[{
             type:String
         }]

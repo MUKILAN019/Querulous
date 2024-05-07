@@ -2,24 +2,25 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
- function Profile() {
+function Profile() {
   const [userInfo, setUserInfo] = useState({});
   const email = localStorage.getItem("email");
 
-  useEffect(() => {
-    LoadingFunc();
-  }, []); 
+ 
 
   const LoadingFunc = async () => {
     try {
       const res = await axios.post("http://localhost:5001/api/user/profile", { email });
-      setUserInfo(res);
-      console.log(res)
+      setUserInfo(res.data.detail.data[0]);
+      console.log(res.data.detail.data[0]);
     } catch (err) {
       console.error(err.message);
     }
   };
-
+  useEffect(()=>{
+    LoadingFunc();
+  },[])
+ 
   return (
     <div className="p-16 bg-orange-300">
       <Link to="/home">
@@ -49,7 +50,7 @@ import { Link } from "react-router-dom";
             </div>
             <div className="relative">
               <div className="w-56 h-56 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500">
-                <img className="rounded-full h-56 w-56" src={userInfo.profileImageUrl} alt="Profile" />
+                <img className="rounded-full h-56 w-56" src={userInfo.profileImage} alt="Profile" />
               </div>
             </div>
             <div className="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
@@ -57,23 +58,21 @@ import { Link } from "react-router-dom";
                 Connection
               </button>
               <Link to="/edit">
-                <button className="text-white py-4 px-4 uppercase rounded bg-gray-700 hover:bg-gray-800 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+                <button className="text-white flex py-4 px-4 uppercase rounded bg-gray-700 hover:bg-gray-800 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+                <svg className="h-8 w-8 text-orange-500"  viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor" fill="none" strokeLinecap="round" strokeLinejoin="round">  <path stroke="none" d="M0 0h24v24H0z"/>  <path d="M9 7 h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />  <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />  <line x1="16" y1="5" x2="19" y2="8" /></svg>
                   Edit profile
                 </button>
               </Link>
             </div>
           </div>
           <div className="mt-20 text-center border-b pb-12">
-            <h1 className="text-4xl font-medium text-gray-700">{userInfo.name}, <span className="font-light text-gray-500">age {userInfo.age}</span></h1>
+            <h1 className="text-4xl font-medium text-gray-700">{userInfo.fullname}, <span className="font-light text-gray-500">{userInfo.age}</span></h1>
             <p className="font-light text-gray-600 mt-3">Location {userInfo.location}</p>
-            <p className="mt-8 text-gray-500">You working as {userInfo.job}</p>
-            <p className="mt-2 text-gray-500">You working at {userInfo.company}</p>
+            <p className="mt-8 text-gray-500">You working as {userInfo.professional}</p>
+            <p className="mt-2 text-gray-500">You working at </p>
           </div>
           <div className="mt-12 flex flex-col justify-center">
-            <p className="text-gray-600 text-center font-light lg:px-16">About {userInfo.name}</p>
-            {/* <button className="text-indigo-500 py-2 px-4  font-medium mt-4">
-              Show more
-            </button> */}
+            <p className="text-gray-600 text-center font-light lg:px-16">About {userInfo.about}</p>
           </div>
         </div>
       )}
