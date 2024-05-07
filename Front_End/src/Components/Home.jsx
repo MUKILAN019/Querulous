@@ -40,11 +40,8 @@ export default function HomePage() {
                 <div>
                     <ul className="flex justify-between w-[30%] absolute right-20 top-8">
                         <li>
-                            <svg className="h-8 w-8 text-orange-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                                <polyline points="9 22 9 12 15 12 15 22" />
-                            </svg>
-                            <p className="text-xs mt-1 mr-2">Home</p>
+                        <svg className="h-8 w-8 text-orange-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round">  <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48" /></svg>
+                            <p className="text-xs mt-1 mr-2">Post</p>
                         </li>
                         <li>
                             <div className="relative">
@@ -57,7 +54,7 @@ export default function HomePage() {
                                 </span>
                             </div>
                             <div>
-                                <p className="text-xs absolute bottom-0.5">Notification</p>
+                                <p className="text-xs absolute bottom-0.5 left-[47.2%]">Chat</p>
                             </div>
                         </li>
                         <li>
@@ -75,11 +72,21 @@ export default function HomePage() {
                     </ul>
                 </div>
             </div>
-            {/* <div>
-                <Routes>
-                    <Route path="/profile" element={<Profile />} />
-                </Routes>
-            </div> */}
+            <div className="w-full  bg-gray-300 h-screen">
+                    <div className="w-[50%] h-screen bg-orange-300 ml-[24%]">
+                        <div className=" border border-orange-700 border-4 h-[85%] w-[90%] ml-10">
+                        <div className="grid bg-white absolute top-[20%] left-[29%] h-[70%] w-[40%]">
+                             <div className="flex justify-between">
+                             <svg className="h-8 w-8 text-orange-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round">  <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" /></svg>
+                             <svg className="h-8 w-8 text-orange-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round">  <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17" /></svg>
+                             <svg className="h-8 w-8 text-orange-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/></svg>
+
+                             </div>
+                        </div>
+                        </div>
+                        
+                    </div>
+            </div>
         </>
     )
 }
