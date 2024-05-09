@@ -44,7 +44,7 @@ export default function HomePage() {
                             <p className="text-xs mt-1 mr-2">Post</p>
                         </li>
                         <li>
-                            <div className="relative">
+                           <Link to="/chat"><div className="relative">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                                 </svg>
@@ -55,7 +55,7 @@ export default function HomePage() {
                             </div>
                             <div>
                                 <p className="text-xs absolute bottom-0.5 left-[47.2%]">Chat</p>
-                            </div>
+                            </div></Link>
                         </li>
                         <li>
                             <Link to="/profile">
@@ -74,12 +74,12 @@ export default function HomePage() {
             </div>
             <div className="w-full  bg-gray-300 h-screen">
                     <div className="w-[50%] h-screen bg-orange-300 ml-[24%]">
-                        <div className=" border border-orange-700 border-4 h-[85%] w-[90%] ml-10">
+                        <div className=" border border-orange-700 border-4 h-[85%] w-[90%] ml-10 bg-gray-300">
                         <div className="grid bg-white absolute top-[20%] left-[29%] h-[70%] w-[40%]">
-                             <div className="flex justify-between">
-                             <svg className="h-8 w-8 text-orange-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round">  <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" /></svg>
-                             <svg className="h-8 w-8 text-orange-500"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round">  <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17" /></svg>
-                             <svg className="h-8 w-8 text-orange-500"  fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/></svg>
+                             <div className="flex justify-between mt-[81%] bg-slate-300 w-3/4 ml-[13%]">
+                             <svg className="h-8 w-8 text-orange-500 border border-dashed border-green-500 border-4"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round">  <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" /></svg>
+                             <svg className="h-8 w-8 text-orange-500 border border-dashed border-red-500 border-4"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round">  <path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17" /></svg>
+                             <svg className="h-8 w-8 text-orange-500 border border-dashed border-yellow-500 border-4"  fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/></svg>
 
                              </div>
                         </div>

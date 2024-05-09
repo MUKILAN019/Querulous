@@ -8,6 +8,7 @@ import HomePage from './Components/Home';
 import Profile from './Components/Profile';
 import ChoicePage from './Components/Choice';
 import ProfileEdit from './Components/ProfileEdit';
+import ChatBox from './Components/Chat';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
            <Route path="/profile" element={<Profile/>}/>
            <Route path="/choice" element={<ChoicePage/>}/>
            <Route path="/edit" element={<ProfileEdit/>}/>
+           <Route path="/chat" element={<ChatBox/>}/>
        </Routes>
    
     </>
