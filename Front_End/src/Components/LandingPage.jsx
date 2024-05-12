@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import axios from "axios";  
 import logo from "../assets/querulous.png";
 import { useNavigate } from "react-router-dom";
+// import Fire from "./Firebase";
+import { initializeApp } from 'firebase/app';
+import 'firebase/firestore';
+import {GoogleAuthProvider, getAuth, signInWithPopup} from 'firebase/auth';
 export default function LandingPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [email, setEmail] = useState("");
@@ -44,6 +48,27 @@ export default function LandingPage() {
     );
   }
 
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBmE0qlNTqCb31URcrHj3q4hKGfulsE69Y",
+    authDomain: "querulous-5a08f.firebaseapp.com",
+    projectId: "querulous-5a08f",
+    storageBucket: "querulous-5a08f.appspot.com",
+    messagingSenderId: "405949316971",
+    appId: "1:405949316971:web:f208e18ec2bea87943162e",
+    measurementId: "G-QZP3KTJ82D"
+};
+
+
+const app=initializeApp(firebaseConfig)
+//  const firestore = firebase.firestore();
+const auth = getAuth()
+const provider=new GoogleAuthProvider()
+function sign(){
+signInWithPopup(auth,provider).then((res)=>{
+    console.log(res.user)
+})
+}
   
 
   return (
@@ -54,13 +79,13 @@ export default function LandingPage() {
     </div>
 </div>
     <div className="flex h-screen">
-        <div className="w-1/2  bg-gray-300">
+        <div className="w-1/2  bg-gray-300 ">
             <div className="top-[11%] absolute left-[6%]">
             <div className="relative py-3 sm:max-w-xl sm:mx-auto">
   <div
-    className="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10"
+    className="relative px-4 py-10 bg-white mx-8 md:mx-0 shadow rounded-3xl sm:p-10 mt-[10%]"
   >
-    <div className="max-w-md mx-auto">
+    <div className="max-w-md mx-auto mt-[10%]">
       <div className="flex items-center space-x-5 justify-center font-extrabold">
         QUERULOUS
       </div>
@@ -99,7 +124,7 @@ export default function LandingPage() {
       <div className="flex justify-center w-full items-center">
         <div>
           <button
-            className="flex items-center justify-center py-2 px-20 bg-white hover:bg-gray-200 focus:ring-blue-500 focus:ring-offset-blue-200 text-gray-700 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
+            className="flex items-center justify-center py-2 px-20 bg-white hover:bg-gray-200 focus:ring-blue-500 focus:ring-offset-blue-200 text-gray-700 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg" onClick={sign}
           >
             <svg
               viewBox="0 0 24 24"
@@ -169,13 +194,7 @@ export default function LandingPage() {
             </svg>
             <span className="ml-2">Sign in with Google</span>
           </button>
-          <button
-            className="flex items-center justify-center py-2 px-20 bg-white hover:bg-gray-200 focus:ring-blue-500 focus:ring-offset-blue-200 text-gray-700 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg mt-4"
-          >
-            <svg stroke-linejoin="round" stroke-linecap="round" stroke-width="2" stroke="currentColor" fill="none" viewBox="0 0 24 24" class="w-8 hover:scale-125 duration-200 hover:stroke-blue-500"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-            <br/>
-            <span className="ml-2">Sign in with Github</span>
-          </button>
+
         </div>
       </div>
       <div className="mt-5">

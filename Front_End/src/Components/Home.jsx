@@ -72,9 +72,9 @@ export default function HomePage() {
                     </ul>
                 </div>
             </div>
-            <div className="w-full  bg-gray-300 h-screen">
-                    <div className="w-[60%] h-screen bg-orange-300 ml-[20%]">
-                        <div className=" border border-orange-700 border-4 h-[85%] w-[45%] ml-[7%] top-[15%] bg-gray-300 absolute">
+            <div className="w-full  bg-orange-300 h-screen">
+                    <div className="w-[60%] h-screen bg-orange-600 ml-[20%]">
+                        <div className=" border border-gray-700 border-4 h-[85%] w-[45%] ml-[7%] top-[15%] bg-gray-300 absolute">
                         <div className="grid bg-white absolute top-[8%] left-[5%] h-[80%] w-[90%]">
                              <div className="flex justify-between mt-[81%] bg-slate-300 w-3/4 ml-[13%]">
                              <svg className="h-8 w-8 text-orange-500 border border-dashed border-green-500 border-4"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  strokeWidth="2"  strokeLinecap="round"  strokeLinejoin="round">  <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" /></svg>

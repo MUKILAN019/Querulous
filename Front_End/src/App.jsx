@@ -10,6 +10,7 @@ import ChoicePage from './Components/Choice';
 import ProfileEdit from './Components/ProfileEdit';
 import ChatBox from './Components/Chat';
 
+
 function App() {
 
   return (
@@ -25,6 +26,7 @@ function App() {
            <Route path="/choice" element={<ChoicePage/>}/>
            <Route path="/edit" element={<ProfileEdit/>}/>
            <Route path="/chat" element={<ChatBox/>}/>
+           
        </Routes>
    
     </>

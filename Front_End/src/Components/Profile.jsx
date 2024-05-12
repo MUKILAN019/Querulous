@@ -22,13 +22,13 @@ function Profile() {
   },[])
  
   return (
-    <div className="p-16 bg-orange-300">
+    <div className="p-16 bg-orange-300 bg-[url('./assets/profileBg.png')]">
       <Link to="/home">
-        <button className="cursor-pointer duration-200 hover:scale-125 active:scale-100 flex" title="Go Back">
+        <button className="cursor-pointer duration-200 hover:scale-125 active:scale-100 flex bg-slate-500 w-[10%] border-r-8" title="Go Back">
           <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 24 24" className="stroke-orange-700">
             <path strokeLinejoin="round" strokeLinecap="round" strokeWidth="1.5" d="M11 6L5 12M5 12L11 18M5 12H19"></path>
           </svg>
-          <h2 className="text-xl mt-2 font-bold text-white mt-1">Go Back</h2>
+          <h2 className="text-xl mt-2 font-bold text-white mt-1 ">Go Back</h2>
         </button>
       </Link>
       {userInfo && (
