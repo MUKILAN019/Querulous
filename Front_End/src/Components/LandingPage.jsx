@@ -12,6 +12,8 @@ export default function LandingPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const nav=useNavigate();
+  // const userEmail = localStorage.getItem("email")
+  // console.log(userEmail)
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -66,10 +68,23 @@ const auth = getAuth()
 const provider=new GoogleAuthProvider()
 function sign(){
 signInWithPopup(auth,provider).then((res)=>{
-    console.log(res.user)
+    console.log(res.user.email)
+    axios.post("http://localhost:5001/api/user/verification",{email:res.user.email}).then((reso)=>{
+      console.log(reso.data.message)
+      if(reso.data.message==="Successfully email is checked"){
+        localStorage.setItem("email",res.user.email)
+        nav("/home")
+      }
+      else if(reso.data.message==="Invalid Email") {
+        alert(reso.data.message)
+      }
+    }).catch((er)=>{
+      console.log(er.message)
+    })
+
 })
 }
-  
+ 
 
   return (
     <>
