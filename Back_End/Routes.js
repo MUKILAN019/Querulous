@@ -147,7 +147,7 @@ router.post("/edit", async (req, res) => {
 //profile 
 router.post("/profile", async (req, res) => {
     const { email } = req.body;
-    
+    // console.log(email)
     try {
       const user = await User.findOne({ email });
       if (!user) {
@@ -159,6 +159,21 @@ router.post("/profile", async (req, res) => {
       res.status(500).send({ message: "Server Error", error: err.message });
     }
   });
+//Firebase Email verfication
+router.post("/verification",async (req,res)=>{
+    const {email} = req.body;
+    console.log("-->",email)
+    try{
+        const user = await User.findOne({email});
+        if(!user){
+            return res.status(400).send({message:"Invalid Email"});
+        }
+        res.status(200).send({message:"Successfully email is checked"})
+    }
+    catch(err){
+        res.status(500).send({message:"Server Error",error:err.message});
+    }
+})
   
 
 module.exports = router;

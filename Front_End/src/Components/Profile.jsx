@@ -5,14 +5,19 @@ import { Link } from "react-router-dom";
 function Profile() {
   const [userInfo, setUserInfo] = useState({});
   const email = localStorage.getItem("email");
-
+  console.log(email)
  
 
   const LoadingFunc = async () => {
     try {
       const res = await axios.post("http://localhost:5001/api/user/profile", { email });
+     if(res.data.detail.data[0]){
       setUserInfo(res.data.detail.data[0]);
       console.log(res.data.detail.data[0]);
+     }
+     else{
+      alert("Please Update Profile")
+     }
     } catch (err) {
       console.error(err.message);
     }
